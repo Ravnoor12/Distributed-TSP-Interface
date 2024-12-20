@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Form</title>
+</head>
+<body>
+    <h1>Run Workflow</h1>
+<form method="post">
+    {% csrf_token %}
+
+    <!-- Weight Type -->
+    <div class="form-group">
+        <label for="weight_type">Weight Type</label>
+        <select name="weight_type" id="weight_type" class="form-control" required>
+            <option value="00" {% if weight_type == "00" %}selected{% endif %}>Weight 00</option>
+            <option value="01" {% if weight_type == "01" %}selected{% endif %}>Weight 01</option>
+            <option value="02" {% if weight_type == "02" %}selected{% endif %}>Weight 02</option>
+            <option value="03" {% if weight_type == "03" %}selected{% endif %}>Weight 03</option>
+            <option value="04" {% if weight_type == "04" %}selected{% endif %}>Weight 04</option>
+            <option value="05" {% if weight_type == "05" %}selected{% endif %}>Weight 05</option>
+            <option value="06" {% if weight_type == "06" %}selected{% endif %}>Weight 06</option>
+            <option value="07" {% if weight_type == "07" %}selected{% endif %}>Weight 07</option>
+            <option value="08" {% if weight_type == "08" %}selected{% endif %}>Weight 08</option>
+            <option value="09" {% if weight_type == "09" %}selected{% endif %}>Weight 09</option>
+        </select>
+    </div>
+
+    <!-- Random Seed -->
+    <div class="form-group">
+        <label for="random_seed">Random Seed</label>
+        <input
+            type="number"
+            id="random_seed"
+            name="random_seed"
+            min="0"
+            max="32000"
+            class="form-control"
+            value="{{ random_seed }}"
+            required
+        />
+    </div>
+
+    <!-- Number of Tries -->
+    <div class="form-group">
+        <label for="no_of_trys">Number of Tries</label>
+        <input
+            type="number"
+            id="no_of_trys"
+            name="no_of_trys"
+            min="1"
+            class="form-control"
+            value="{{ no_of_trys }}"
+            required
+        />
+    </div>
+
+    <!-- Batch Jobs -->
+    <div class="form-group">
+        <label for="batch_jobs">Batch Jobs</label>
+        <input
+            type="number"
+            id="batch_jobs"
+            name="batch_jobs"
+            min="1"
+            class="form-control"
+            value="{{ batch_jobs }}"
+            required
+        />
+    </div>
+
+    <!-- Best Distance -->
+    <div class="form-group">
+        <label for="best_distance">Best Distance So Far</label>
+        <input
+            type="text"
+            id="best_distance"
+            name="best_distance"
+            class="form-control"
+            value="{{ best_distance }}"
+            readonly
+        />
+    </div>
+    <div class="form-group">
+            <label for="job_status">Job Status</label>
+            <input
+                type="text"
+                id="job_status"
+                name="job_status"
+                class="form-control"
+                value="{{ job_status }}"
+                readonly
+            />
+    </div>
+    <!-- Buttons -->
+    <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>
+    <button type="submit" name="action" value="{{ start_stop_label }}" class="btn btn-secondary">
+        {{ start_stop_label }}
+    </button>
+    <button type="submit" name="action" value="reset" class="btn btn-danger">Reset</button>
+</form>
+</body
+</html>
+

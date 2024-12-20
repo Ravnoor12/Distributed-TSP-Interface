@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Form</title>
+</head>
+<body>
+    <h1>Run Workflow</h1>
+    <form method="post">
+	 {% csrf_token %}
+	 {{ form.as_p }}
+	
+<!--	{{ form.weight_type }}
+    {{ form.random_seed }}
+    {{ form.no_of_trys }}
+    {{ form.batch_jobs }}
+-->
+	<!-- <div class="form-group">
+        <label for="id_best_distance">Best Distance So Far</label>
+        <input 
+            type="text" 
+            id="id_best_distance" 
+            name="best_distance" 
+            class="form-control" 
+            value="{{ best_distance }}" 
+            readonly
+        >
+    	</div>
+	-->
+
+<!--	 <div class="form-group">
+        <label for="id_best_distance">Best Distance So Far</label>
+        {{ form.best_distance }}
+    </div>
+-->
+        <button type="submit">Update</button>
+	 <button type="submit" name="action" value="{{ start_stop_label }}">{{ start_stop_label }}</button>
+    </form>
+</body
+</html>
+
